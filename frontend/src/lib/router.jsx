@@ -1,27 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import Create from "../pages/Create";
-import Blogs from "../pages/Blogs";
-import Blog from "../pages/Blog";
-import Update from "../pages/Update";
+import { Home } from "../pages/home";
+import Post from "../pages/posts";
+import { CreatePost } from "../pages/create";
+import { UpdatePost } from "../pages/update";
 
 const router = createBrowserRouter([
   {
-    path: "",
-    element: <Blogs />,
-  },
-  {
-    path: "create/",
-    element: <Create />,
+    path: "/",
+    element: <Home/>
   },
   {
     path: ":id/",
-    element: <Blog />,
+    element: <Post />
+  },
+  {
+    path: "/create",
+    element: <CreatePost/>
   },
   {
     path: ":id/update",
-    element: <Update />,
-  },
+    element:<UpdatePost />
+  }
 ]);
 
 export default router;
