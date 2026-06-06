@@ -1,4 +1,5 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { CreatePosts } from "../api/api";
 
 export function CreatePost(){
     const navigate = useNavigate();
@@ -7,13 +8,7 @@ export function CreatePost(){
         e.preventDefault();
         const title = e.target.title.value;
         const content = e.target.content.value;
-        const res = await fetch("http://localhost:3000/blogs",{
-            method : "POST",
-            body : JSON.stringify({title,content}),
-            headers : {
-                "Content-Type": "Application/json",
-            },
-        });
+        const res = await CreatePosts();
         navigate("/");
     };
     return (

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { GetPost, UpdatePosts } from "../api/api";
 
 export function UpdatePost(){
     const {id} = useParams();
     const[loading,setLoading] = useState(true);
     const[post,setPost] = useState();
     const load = async() => {
-        const res = await fetch(`http://localhost:3000/blogs/${id}`)
-        const data = await res.json();
+        const data = await GetPost(id);
         setPost(data);
         setLoading(false);
     };
@@ -22,13 +22,7 @@ export function UpdatePost(){
         e.preventDefault();
         const title = e.target.title.value;
         const content = e.target.content.value;
-        const res = await fetch(`http://localhost:3000/blogs/${id}`,{
-            method : "PUT",
-            body : JSON.stringify({title,content}),
-            headers : {
-                "Content-Type": "Application/json",
-            },
-        });
+        const res = await UpdatePosts(id,title,content);
         navigate("/");
     };
 

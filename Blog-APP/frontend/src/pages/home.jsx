@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GetPost, GetPosts } from "../api/api";
 
 
 export function Home(){
     const[loading,setLoading] = useState(true);
     const[posts,setPosts] = useState([]);
     const load = async() =>{
-        const res = await fetch("http://localhost:3000/blogs");
-        const data = await res.json();
+        const data = await GetPosts();
         setLoading(false);
         setPosts(data);
     };
