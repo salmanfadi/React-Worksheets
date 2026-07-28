@@ -83,43 +83,147 @@
 // }));
 // console.log(res);
 
-input = [
- ['1','0','0'],
- ['0','1','0'],
- ['1','0','1']
-]
+//Arrays
 
-const col = input.length;
-const row = input[0].length;
+// indexOf includes
 
-const directions=[
-    [0,1],
-    [1,0],
-    [-1,0],
-    [0,-1]
-]
-let res =0;
-for(let i = 0;i<col;i++){
-    for(let j = 0;j<row;j++){
-        if(input[i][j] == '1'){
-            gotIsland(input,i,j,row,col);
-            res++;
-        }
-        else{
-            continue;
-        }
-    }
-}
-function gotIsland(input,i,j,row,col){
 
-    if(i <0 || j<0 || i >= col || j >=row || input[i][j] == '0'){
-        return;
-    }
+// console.log(fruits[1]);
 
-    input[i][j] = '0';
-    //for all directions wherever there is adjascent ones we need to mark them as 0 using this function as  recursive
-    for(const [dr,dc] of directions){
-        gotIsland(input,i +dc,j+ dr,row,col);
-    }
-}
-console.log(res);
+// for (let i = 0; i < fruits.length; i++) {
+//   console.log("Fruit " + i + "is " + fruits[i]);
+// }
+
+// fruits.forEach((fruit) => {
+//   console.log(fruit);
+// });
+
+// for (let fruit of fruits) {
+//   console.log(fruit);
+// }
+
+//recursive funtion
+
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     } else {
+//         return n * factorial(n - 1);
+//     }
+// }
+// let num1 = 6;
+// let result = factorial(num1);
+// console.log("The factorial of given number is :" + result);
+
+// const sayHello = function (name = "Jaskirat") {
+//   console.log(`Hello ${name}`);
+// };
+
+// function welocomeShow(callback) {
+//   console.log("Welcome to the  Show Every one");
+//   callback();
+// }
+
+// welocomeShow(sayHello);
+
+
+
+//rest parameters
+
+// function sum(...numbers) {
+//   numbers.forEach((number) => {
+//     console.log(number);
+//   });
+// }
+// sum([1, 2, 3, 4]);
+
+//default parameters:
+
+// const add=function(a,b=20){
+//   return a+b;
+// }
+
+// console.log(add(10))
+
+//Arrow functions:
+
+// const mul = () => {
+//   console.log("multiplying a *b");
+// };
+
+// mul();
+
+//fucntion expression
+
+// const add=function(a,b){
+//   return a+b;
+// }
+
+// console.log(add(10,20))
+
+// function getTime() {
+//   const count = 10;
+
+//   count = count + 1;
+//   console.log(count);
+// }
+// getTime();
+
+//arrow fucntion as a callback and anonymous funtion as callback
+
+// const add = () => {
+//     return a + b;
+// }
+
+// console.log(10,20);
+
+//closure
+// function outer() {
+//     let count = 0;
+
+//     return function() {
+//         count++;
+//         console.log(count);
+//     };
+// }
+
+// const increment = outer();
+
+// increment();
+// increment();
+// increment();
+
+// function createcounter(){
+//     let count = 0;
+
+//     return function(){
+//         count++;
+//         console.log(count);
+//     };
+// }
+
+// const counter = createcounter();
+
+// counter();
+// counter();
+// counter();
+// console.log("A");
+
+// setTimeout(() => {
+//     console.log("B");
+// }, 0);
+
+// console.log("C");
+
+console.log("Start");
+
+const promise = new Promise((resolve) => {
+    setTimeout(()=>{
+        resolve();
+    },2000);
+})
+console.log("Waiting..");
+promise.then(() =>{
+    console.log("Done");
+});
+
